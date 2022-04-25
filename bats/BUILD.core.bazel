@@ -1,0 +1,5 @@
+sh_binary(
+    name = "bats",
+    srcs = ["bin/bats"],
+    visibility = ["//visibility:public"],
+)

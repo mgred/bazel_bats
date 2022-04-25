@@ -1,0 +1,5 @@
+sh_library(
+    name = "assert",
+    srcs = ["load.bash"] + glob(["src/*.bash"]),
+    visibility = ["//visibility:public"],
+)

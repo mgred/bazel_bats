@@ -1,0 +1,5 @@
+sh_library(
+    name = "support",
+    srcs = ["load.bash"] + glob(["src/*.bash"]),
+    visibility = ["//visibility:public"],
+)

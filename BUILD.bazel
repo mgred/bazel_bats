@@ -1,0 +1,22 @@
+sh_library(
+    name = "bats",
+    data = [
+        "@bats-core//:bats",
+        "@bats-support//:support",
+        "@bats-assert//:assert",
+    ],
+)
+
+sh_test(
+    name = "test",
+    srcs = ["runner.sh"],
+    data = [
+        "script.sh",
+        "test.bats",
+        "@bats-core//:bats",
+    ],
+    deps = [
+        "@bats-support//:support",
+        "@bats-assert//:assert",
+    ]
+)
