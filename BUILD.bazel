@@ -1,22 +1,16 @@
+load("//:bats_test.bzl", "bats_test")
+
 sh_library(
-    name = "bats",
-    data = [
-        "@bats-core//:bats",
-        "@bats-support//:support",
-        "@bats-assert//:assert",
-    ],
+    name = "script",
+    srcs = ["script.sh"],
 )
 
-sh_test(
+bats_test(
     name = "test",
-    srcs = ["runner.sh"],
-    data = [
-        "script.sh",
-        "test.bats",
-        "@bats-core//:bats",
-    ],
+    data = [":script"],
+    srcs = ["test.bats"],
     deps = [
         "@bats-support//:support",
         "@bats-assert//:assert",
-    ]
+    ],
 )
